@@ -14,22 +14,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#define WIDTH 256
-#define HEIGHT 256
+#define WIDTH 1920
+#define HEIGHT 1080
 
 // Exit the program as failure.
 static void	ft_error(void)
 {
-	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
+	perror(mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
 }
 
 // Print the window width and height.
 static void	ft_hook(void *param)
 {
-	const mlx_t	*mlx = param;
+	mlx_t	*mlx;
 
-	printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
+	mlx = param;
+	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
+		mlx_close_window(mlx);
 }
 
 int32_t	main(void)
@@ -44,7 +46,6 @@ int32_t	main(void)
 	img = mlx_new_image(mlx, 256, 256);
 	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
 		ft_error();
-	mlx_put_pixel(img, 0, 0, 0xFF0000FF);
 	mlx_loop_hook(mlx, ft_hook, mlx);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
