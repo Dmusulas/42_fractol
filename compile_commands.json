@@ -1,0 +1,21 @@
+[
+ {
+  "directory": "/home/dmusulas/Repos/42_fractol",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iinclude",
+   "-Isrc",
+   "-I./lib/libft/include",
+   "-I./lib/MLX42/include",
+   "-c",
+   "src/main.c",
+   "-o",
+   "obj/main.o"
+  ],
+  "file": "src/main.c"
+ }
+]
