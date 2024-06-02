@@ -10,21 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MLX42/MLX42.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#define WIDTH 1920
-#define HEIGHT 1080
+#include "fractol.h"
 
-// Exit the program as failure.
-static void	ft_error(void)
-{
-	perror(mlx_strerror(mlx_errno));
-	exit(EXIT_FAILURE);
-}
-
-// Print the window width and height.
 static void	ft_hook(void *param)
 {
 	mlx_t	*mlx;
@@ -34,20 +21,25 @@ static void	ft_hook(void *param)
 		mlx_close_window(mlx);
 }
 
-int32_t	main(void)
+int	main(int argc, char *argv[])
 {
-	mlx_t		*mlx;
-	mlx_image_t	*img;
+	t_fractol	*f;
 
+	f = init_fractol(argv);
+	if (argc < 2)
+		help_msg(f, ERR_ARGS);
 	mlx_set_setting(MLX_MAXIMIZED, true);
-	mlx = mlx_init(WIDTH, HEIGHT, "fractol", true);
-	if (!mlx)
-		ft_error();
-	img = mlx_new_image(mlx, 256, 256);
-	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
-		ft_error();
-	mlx_loop_hook(mlx, ft_hook, mlx);
-	mlx_loop(mlx);
-	mlx_terminate(mlx);
+	f->mlx = mlx_init(WIDTH, HEIGHT, "fractol", true);
+	if (!f->mlx)
+		error();
+	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
+	if (!f->img || (mlx_image_to_window(f->mlx, f->img, 0, 0) < 0))
+		error();
+	draw_image(f);
+	mlx_loop_hook(f->mlx, ft_hook, f->mlx);
+	mlx_scroll_hook(f->mlx, scroll_callback, f);
+	mlx_key_hook(f->mlx, key_callback, f);
+	mlx_loop(f->mlx);
+	destroy_fractol(EXIT_SUCCESS, f);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/25 19:09:47 by dmusulas          #+#    #+#              #
-#    Updated: 2024/05/28 18:11:04 by dmusulas         ###   ########.fr        #
+#    Updated: 2024/06/02 20:36:37 by dmusulas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,14 @@ MLX_LIBS	    := $(LIBMLX_DIR)/build/libmlx42.a -ldl -lglfw -pthread -lm
 # Sources
 VPATH        = src:include
 INCLUDES     = fractol.h
-FRACTOL_SRCS  = main.c
+FRACTOL_SRCS  = main.c\
+				utils.c\
+				keys.c\
+				mouse.c\
+				args.c\
+				fractal.c\
+				color.c\
+				rendering_utils.c
 FRACTOL_OBJS = $(FRACTOL_SRCS:%.c=obj/%.o)
 
 all: libmlx libft $(NAME)

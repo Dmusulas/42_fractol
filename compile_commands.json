@@ -17,5 +17,138 @@
    "obj/main.o"
   ],
   "file": "src/main.c"
+ },
+ {
+  "directory": "/home/dmusulas/Repos/42_fractol",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iinclude",
+   "-Isrc",
+   "-I./lib/libft/include",
+   "-I./lib/MLX42/include",
+   "-c",
+   "src/utils.c",
+   "-o",
+   "obj/utils.o"
+  ],
+  "file": "src/utils.c"
+ },
+ {
+  "directory": "/home/dmusulas/Repos/42_fractol",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iinclude",
+   "-Isrc",
+   "-I./lib/libft/include",
+   "-I./lib/MLX42/include",
+   "-c",
+   "src/keys.c",
+   "-o",
+   "obj/keys.o"
+  ],
+  "file": "src/keys.c"
+ },
+ {
+  "directory": "/home/dmusulas/Repos/42_fractol",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iinclude",
+   "-Isrc",
+   "-I./lib/libft/include",
+   "-I./lib/MLX42/include",
+   "-c",
+   "src/mouse.c",
+   "-o",
+   "obj/mouse.o"
+  ],
+  "file": "src/mouse.c"
+ },
+ {
+  "directory": "/home/dmusulas/Repos/42_fractol",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iinclude",
+   "-Isrc",
+   "-I./lib/libft/include",
+   "-I./lib/MLX42/include",
+   "-c",
+   "src/args.c",
+   "-o",
+   "obj/args.o"
+  ],
+  "file": "src/args.c"
+ },
+ {
+  "directory": "/home/dmusulas/Repos/42_fractol",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iinclude",
+   "-Isrc",
+   "-I./lib/libft/include",
+   "-I./lib/MLX42/include",
+   "-c",
+   "src/fractal.c",
+   "-o",
+   "obj/fractal.o"
+  ],
+  "file": "src/fractal.c"
+ },
+ {
+  "directory": "/home/dmusulas/Repos/42_fractol",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iinclude",
+   "-Isrc",
+   "-I./lib/libft/include",
+   "-I./lib/MLX42/include",
+   "-c",
+   "src/color.c",
+   "-o",
+   "obj/color.o"
+  ],
+  "file": "src/color.c"
+ },
+ {
+  "directory": "/home/dmusulas/Repos/42_fractol",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iinclude",
+   "-Isrc",
+   "-I./lib/libft/include",
+   "-I./lib/MLX42/include",
+   "-c",
+   "src/rendering_utils.c",
+   "-o",
+   "obj/rendering_utils.o"
+  ],
+  "file": "src/rendering_utils.c"
  }
 ]
