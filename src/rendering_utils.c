@@ -6,7 +6,7 @@
 /*   By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 20:35:30 by dmusulas          #+#    #+#             */
-/*   Updated: 2024/06/02 20:35:30 by dmusulas         ###   ########.fr       */
+/*   Updated: 2024/06/03 21:37:50 by dmusulas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
  * to ensure that the point under the mouse remains stationary.
  *
 
-	* @param f A pointer to the t_fractol structure containing the image data and parameters.
+ * @param f A pointer to the t_fractol structure containing the 
+ * image data and parameters.
  * @param zoom_factor The factor by which to zoom in or out.
  * @param mouse_x The x-coordinate of the mouse position.
  * @param mouse_y The y-coordinate of the mouse position.

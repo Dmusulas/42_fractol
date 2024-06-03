@@ -14,9 +14,7 @@
 #include <stdint.h>
 
 /**
- * @brief Splits a 32-bit integer color into its RGBA components.
- *
- * This function takes a 32-bit integer representing a color in the format
+ * Splits a 32-bit integer color into its RGBA components.
  * 0xRRGGBBAA and splits it into its red, green, blue, and alpha components.
  * This is done using bit-shifting and bitwise AND both of them mask other
  * parts of color and only leave necessary part.

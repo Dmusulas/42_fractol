@@ -29,6 +29,8 @@ void	calculate_mandelbrot(t_fractol *f)
 {
 	int		i;
 	double	x_temp;
+	double	zx2;
+	double	zy2;
 
 	i = 0;
 	f->zx = 0.0;
@@ -37,10 +39,38 @@ void	calculate_mandelbrot(t_fractol *f)
 	f->cy = (f->y / f->zoom) + f->offset_y;
 	while (++i < MAX_ITERATIONS)
 	{
-		x_temp = f->zx * f->zx - f->zy * f->zy + f->cx;
-		f->zy = 2. * f->zx * f->zy + f->cy;
+		zx2 = f->zx * f->zx;
+		zy2 = f->zy * f->zy;
+		if (zx2 + zy2 >= DBL_MAX)
+			break ;
+		x_temp = zx2 - zy2 + f->cx;
+		f->zy = 2.0 * f->zx * f->zy + f->cy;
 		f->zx = x_temp;
-		if (f->zx * f->zx + f->zy * f->zy >= DBL_MAX)
+	}
+	if (i == MAX_ITERATIONS)
+		draw_pixel(f, 0x000000);
+	else
+		draw_pixel(f, (f->color * i));
+}
+
+void	calculate_julia(t_fractol *f)
+{
+	int		i;
+	double	temp;
+	double	zx2;
+	double	zy2;
+
+	i = 0;
+	f->zx = (f->x / f->zoom) + f->offset_x;
+	f->zy = (f->y / f->zoom) + f->offset_y;
+	while (++i < MAX_ITERATIONS)
+	{
+		zx2 = f->zx * f->zx;
+		zy2 = f->zy * f->zy;
+		temp = zx2 - zy2;
+		f->zy = 2.0 * f->zy * f->zx + f->cy;
+		f->zx = temp + f->cx;
+		if (zx2 + zy2 >= DBL_MAX)
 			break ;
 	}
 	if (i == MAX_ITERATIONS)
@@ -59,6 +89,8 @@ int	draw_image(t_fractol *f)
 		{
 			if (f->set == 0)
 				calculate_mandelbrot(f);
+			if (f->set == 1)
+				calculate_julia(f);
 			f->y++;
 		}
 		f->x++;

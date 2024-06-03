@@ -6,14 +6,14 @@
 #    By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/25 19:09:47 by dmusulas          #+#    #+#              #
-#    Updated: 2024/06/02 20:36:37 by dmusulas         ###   ########.fr        #
+#    Updated: 2024/06/03 22:04:08 by dmusulas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 CC           = cc
-CFLAGS       = -Wall -Wextra -Werror -g -Iinclude -Isrc
-NAME         = fractol 
+CFLAGS       = -Wall -Wextra -Werror -g -Iinclude -Isrc -Ofast
+NAME         = fractol
 MAKE_LIB     = make -C
 RM			 = rm -rf
 
@@ -45,7 +45,7 @@ FRACTOL_OBJS = $(FRACTOL_SRCS:%.c=obj/%.o)
 all: libmlx libft $(NAME)
 
 libmlx:
-	@cmake $(LIBMLX_DIR) -B $(LIBMLX_DIR)/build -DDEBUG=1 && make -C $(LIBMLX_DIR)/build -j4
+	@cmake $(LIBMLX_DIR) -B $(LIBMLX_DIR)/build && make -C $(LIBMLX_DIR)/build -j4
 
 libft:
 	@make -C $(LIBFT_DIR)

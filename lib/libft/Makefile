@@ -12,6 +12,7 @@ SRCS =	ft_atoi.c\
 		ft_isascii.c\
 		ft_isdigit.c\
 		ft_isprint.c\
+		ft_isspace.c\
 		ft_itoa.c\
 		ft_get_next_line.c\
 		ft_get_next_line_utils.c\

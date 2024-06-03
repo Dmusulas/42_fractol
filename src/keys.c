@@ -6,7 +6,7 @@
 /*   By: dmusulas <dmusulas@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 20:34:51 by dmusulas          #+#    #+#             */
-/*   Updated: 2024/06/02 20:34:51 by dmusulas         ###   ########.fr       */
+/*   Updated: 2024/06/03 22:02:34 by dmusulas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@
 void	key_callback(mlx_key_data_t key_data, void *param)
 {
 	t_fractol	*f;
-	double		center_x;
-	double		center_y;
 
-	center_x = WIDTH / 2.0;
-	center_y = HEIGHT / 2.0;
 	f = (t_fractol *)param;
 	if (key_data.action == MLX_PRESS || key_data.action == MLX_REPEAT)
 	{
@@ -40,9 +36,11 @@ void	key_callback(mlx_key_data_t key_data, void *param)
 			move_image(f, 10, 0);
 		else if (key_data.key == MLX_KEY_KP_ADD
 			|| key_data.key == MLX_KEY_EQUAL)
-			zoom(f, 1.1, center_x, center_y);
+			zoom(f, 1.1, CENTER_X, CENTER_Y);
 		else if (key_data.key == MLX_KEY_KP_SUBTRACT
 			|| key_data.key == MLX_KEY_MINUS)
-			zoom(f, 0.9, center_x, center_y);
+			zoom(f, 0.9, CENTER_X, CENTER_Y);
+		else if (key_data.key == MLX_KEY_ESCAPE)
+			destroy_fractol(EXIT_SUCCESS, f);
 	}
 }
